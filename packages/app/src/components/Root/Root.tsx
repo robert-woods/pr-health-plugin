@@ -22,12 +22,14 @@ import {
   SidebarSpace,
   useSidebarOpenState,
   Link,
+  GitHubIcon,
 } from '@backstage/core-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
+import { PrMetricsPage } from '@internal/plugin-pr-metrics';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -78,11 +80,13 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
         {/* End global nav */}
         <SidebarDivider />
+        <SidebarItem icon={GitHubIcon} to="pr-metrics" text="PR Metrics" />
         <SidebarScrollWrapper>
           {/* Items in this group will be scrollable if they run out of space */}
         </SidebarScrollWrapper>
       </SidebarGroup>
-      <SidebarSpace />
+      
+      <SidebarSpace />      
       <SidebarDivider />
       <NotificationsSidebarItem />
       <SidebarDivider />
